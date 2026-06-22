@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ── Gradient text ───────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #9333ea, #6366f1, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.animated-gradient-text {
+  background: linear-gradient(135deg, #9333ea, #6366f1, #ec4899, #9333ea);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* ── Keyframes ───────────────────────────────────── */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes taskEnter {
+  from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes taskExit {
+  from { opacity: 1; transform: translateX(0); max-height: 120px; margin-bottom: .75rem; }
+  to   { opacity: 0; transform: translateX(20px); max-height: 0; margin-bottom: 0; overflow: hidden; }
+}
+@keyframes taskComplete {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.96); opacity: .7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes progressFill {
+  from { width: 0%; }
+}
+@keyframes popIn {
+  0%   { transform: scale(0.8); opacity: 0; }
+  70%  { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes dialogIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes iconBounce {
+  0%   { transform: scale(0) rotate(-15deg); }
+  60%  { transform: scale(1.25) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes badgePop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes dueTodayPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,146,60,.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(251,146,60,0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes navTabBounce {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-4px) scale(1.15); }
+  100% { transform: translateY(-2px) scale(1.05); }
+}
+@keyframes checkmarkDraw {
+  from { stroke-dashoffset: 40; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Animation utility classes ───────────────────── */
+.task-enter    { animation: taskEnter    .35s cubic-bezier(.34,1.56,.64,1) both; }
+.task-exit     { animation: taskExit     .28s ease-in both; pointer-events: none; }
+.task-complete { animation: taskComplete .3s ease both; }
+.fade-up       { animation: fadeSlideUp  .4s ease both; }
+.pop-in        { animation: popIn        .4s cubic-bezier(.34,1.56,.64,1) both; }
+.progress-bar  { animation: progressFill .9s cubic-bezier(.22,1,.36,1) both; }
+.page-enter    { animation: pageEnter    .35s ease both; }
+.dialog-in     { animation: dialogIn     .3s cubic-bezier(.34,1.56,.64,1) both; }
+.icon-bounce   { animation: iconBounce   .45s cubic-bezier(.34,1.56,.64,1) both; }
+.badge-pop     { animation: badgePop     .3s cubic-bezier(.34,1.56,.64,1) both; }
+.slide-in-left { animation: slideInLeft  .35s ease both; }
+.due-today     { animation: dueTodayPulse 2s ease-in-out infinite; }
+.float         { animation: float        3s ease-in-out infinite; }
+
+/* ── Glassmorphism card ──────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* ── Shimmer skeleton ────────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, #f0e6ff 25%, #e9d5ff 50%, #f0e6ff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
